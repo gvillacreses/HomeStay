@@ -31,6 +31,4 @@ public class Anfitrion extends Usuario {
         incident.escalar();
     }
 
-    // Métodos adicionales específicos del anfitrión
-    // ...
 }

@@ -13,18 +13,15 @@ public class Reserva {
         this.alojamiento = alojamiento;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
-        this.estado = "Pendiente"; // Estado inicial antes de la reserva
+        this.estado = "Pendiente";
     }
 
     public void cancelar() {
-        this.estado = "Cancelada"; // Cambia el estado al cancelar
+        this.estado = "Cancelada";
     }
 
     public String getEstado(){
         return this.estado;
     }
     
-    // otros getters y setters
-    
-    // Otros métodos relacionados ... 
 }

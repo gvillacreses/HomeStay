@@ -10,10 +10,8 @@ public class Huesped extends Usuario {
     }
     
     public void buscar_propiedades(){
-        //..
     }
 
     public void reservar_propiedad(){
-        //..
     }
 }
