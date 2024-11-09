@@ -20,5 +20,11 @@ public class Reserva {
         this.estado = "Cancelada"; // Cambia el estado al cancelar
     }
 
+    public String getEstado(){
+        return this.estado;
+    }
+    
+    // otros getters y setters
+    
     // Otros métodos relacionados ... 
 }
