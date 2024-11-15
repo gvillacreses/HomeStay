@@ -1,42 +1,38 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Propiedad {
     private String nombre;
     private String ubicacion;
-    private String tipo;
-    private String estado; 
-    private String reglas;
+    private List<Unidad> unidades;
+    private List<Restriccion> restricciones;
+    private List<Calificacion> calificaciones;
 
-    public Propiedad(String nombre, String ubicacion, String tipo) {
+    public Propiedad(String nombre, String ubicacion) {
         this.nombre = nombre;
         this.ubicacion = ubicacion;
-        this.tipo = tipo;
-        this.estado = "Disponible";
+        this.unidades = new ArrayList<>();
+        this.restricciones = new ArrayList<>();
+        this.calificaciones = new ArrayList<>();
     }
 
-    public String getNombre() {
-        return nombre;
+    public void agregarUnidad(Unidad unidad) {
+        unidades.add(unidad);
     }
 
-    public String getUbicacion() {
-        return ubicacion;
+    public void agregarCalificacion(Calificacion calificacion) {
+        calificaciones.add(calificacion);
     }
 
-    public String getTipo() {
-        return tipo;
+    public void agregarRestriccion(Restriccion restriccion) {
+        restricciones.add(restriccion);
     }
 
-    public String getEstado() {
-        return estado;
+    public List<Calificacion> getCalificaciones() {
+        return calificaciones;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-
-    public void setRules(String reglas) {
-        this.reglas = reglas;
-    }
-
-    public String getRules() {
-        return reglas;
+    public List<Restriccion> getRestricciones() {
+        return restricciones;
     }
 }

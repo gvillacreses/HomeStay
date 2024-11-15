@@ -1,17 +1,17 @@
-import java.util.*;
-
 public class Huesped extends Usuario {
-    protected String idHuesped;
-    protected List<Reserva> reservas = new ArrayList<>();
+    public Huesped(String nombre, String correo) {
+        super(nombre, correo);
+    }
+    public void reservar(){
+        // ..
+    }
 
-    public Huesped(String nombre, String correo, String telefono, String idHuesped){
-        super(nombre, correo, telefono);
-        this.idHuesped = idHuesped;
+    public void buscarPropiedad(){
+        // puede fallar en la busqueda
     }
     
-    public void buscar_propiedades(){
-    }
-
-    public void reservar_propiedad(){
+    public void dejarCalificacion(Propiedad propiedad, int puntuacion, String comentario) {
+        Calificacion calificacion = new Calificacion(puntuacion, comentario, this);
+        propiedad.agregarCalificacion(calificacion);
     }
 }

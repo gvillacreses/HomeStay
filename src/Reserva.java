@@ -1,27 +1,19 @@
-
 public class Reserva {
-    private String id;
-    private Usuario usuario;
-    private Alojamiento alojamiento;
+    private Unidad unidad;
+    private Huesped huesped;
     private String fechaInicio;
     private String fechaFin;
-    private String estado;
 
-    public Reserva(String id, Usuario usuario, Alojamiento alojamiento, String fechaInicio, String fechaFin) {
-        this.id = id;
-        this.usuario = usuario;
-        this.alojamiento = alojamiento;
+    public Reserva(Unidad unidad, Huesped huesped, String fechaInicio, String fechaFin) {
+        this.unidad = unidad;
+        this.huesped = huesped;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
-        this.estado = "Pendiente";
+        unidad.setEstado("Reservada");
     }
 
-    public void cancelar() {
-        this.estado = "Cancelada";
+    public void confirmarReserva(ServicioNotificacion servicioNotificacion) {
+        // .. acá se envia la notificacion al usuario
     }
-
-    public String getEstado(){
-        return this.estado;
-    }
-    
 }
+
