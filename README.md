@@ -1,18 +1,20 @@
-## Getting Started
+En este proyecto se desarrollaron diversos diagramas para la aplicación HomeStay, incluyendo sus casos de uso, su diagrama de clases y los diagramas individuales de secuencia.
+A continuación los enlaces de los proyectos hechos en Visual Paradigm:
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+DIAGRAMA DE CASOS DE USO:
+https://online.visual-paradigm.com/w/wqndnnqu/diagrams/#diagram:workspace=wqndnnqu&proj=0&id=1&type=UseCaseDiagram
 
-## Folder Structure
+DIAGRAMA DE CLASES:
+https://online.visual-paradigm.com/w/wqndnnqu/diagrams/#diagram:workspace=wqndnnqu&proj=0&id=2&type=ClassDiagram
 
-The workspace contains two folders by default, where:
+DIAGRAMA DE SECUENCIA 1:
+https://online.visual-paradigm.com/w/wqndnnqu/diagrams/#diagram:workspace=wqndnnqu&proj=0&id=3&type=SequenceDiagram&width=11&height=8.5&unit=inch
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+DIAGRAMA DE SECUENCIA 2:
+https://online.visual-paradigm.com/w/wqndnnqu/diagrams/#diagram:workspace=wqndnnqu&proj=0&id=4&type=SequenceDiagram
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+DIAGRAMA DE SECUENCIA 3:
+https://online.visual-paradigm.com/w/wqndnnqu/diagrams/#diagram:workspace=wqndnnqu&proj=0&id=5&type=SequenceDiagram
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+DIAGRAMA DE SECUENCIA 4:
+https://online.visual-paradigm.com/w/wqndnnqu/diagrams/#diagram:workspace=wqndnnqu&proj=0&id=6&type=SequenceDiagram

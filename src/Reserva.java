@@ -15,5 +15,6 @@ public class Reserva {
     public void confirmarReserva(ServicioNotificacion servicioNotificacion) {
         // .. acá se envia la notificacion al usuario
     }
+    
 }
 

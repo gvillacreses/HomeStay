@@ -21,4 +21,22 @@ public class Anfitrion extends Usuario {
     public List<Propiedad> getPropiedades() {
         return propiedades;
     }
+
+    public void resolverProblema(){
+        // ..
+
+    }
+
+    public void escalarProblema(){
+        // .. 
+    }
+
+    public void calificarHuesped(){
+        // ..
+    }
+
+    public void rellenarFormulario(){
+        // ..
+    }
+
 }
