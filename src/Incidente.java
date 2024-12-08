@@ -11,11 +11,16 @@ public class Incidente {
 
     public void resolverIncidente() {
         this.estado = "resuelto";
-        // ..
+        System.out.println("Incidente resuelto: " + descripcion);
     }
 
     public void escalarIncidente() {
         this.estado = "escalado";
-        // ..
+        System.out.println("Incidente escalado: " + descripcion);
+        SoporteTecnico.getInstancia().gestionarIncidente(this);
+    }
+
+    public String getDescripcion(){
+        return descripcion;
     }
 }

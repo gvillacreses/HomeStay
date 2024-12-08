@@ -12,8 +12,9 @@ public class Reserva {
         unidad.setEstado("Reservada");
     }
 
-    public void confirmarReserva(ServicioNotificacion servicioNotificacion) {
-        // .. acá se envia la notificacion al usuario
+    public void confirmarReserva(ContextoNotificacion contexto, MetodoPago metodoPago, double monto) {
+        metodoPago.realizarPago(monto);
+        contexto.enviar("Reserva confirmada para la unidad " + unidad.getTipo(), huesped);
     }
     
 }
