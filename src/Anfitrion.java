@@ -22,21 +22,24 @@ public class Anfitrion extends Usuario {
         return propiedades;
     }
 
-    public void resolverProblema(){
-        // ..
-
+    public void resolverProblema(Incidente incidente){
+        incidente.resolverIncidente();
+        System.out.println("El anfitrión " + getNombre() + " ha resuelto el incidente: " + incidente.getDescripcion());
     }
 
-    public void escalarProblema(){
-        // .. 
+    public void escalarProblema(Incidente incidente){
+        incidente.escalarIncidente();
+        System.out.println("El anfitrión " + getNombre() + " ha escalado el incidente: " + incidente.getDescripcion());
     }
 
-    public void calificarHuesped(){
-        // ..
+    public void calificarHuesped(Huesped huesped, int puntuacion, String comentario){
+        Calificacion calificacion = new Calificacion(puntuacion, comentario, huesped);
+        System.out.println("Huésped calificado: " + calificacion.mostrarCalificacion());
     }
 
-    public void rellenarFormulario(){
-        // ..
+    public void rellenarFormulario(String formulario){
+        System.out.println("El anfitrión " + getNombre() + " ha rellenado el formulario: " + formulario);
+
     }
 
 }

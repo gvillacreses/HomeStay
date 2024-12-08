@@ -35,4 +35,9 @@ public class Propiedad {
     public List<Restriccion> getRestricciones() {
         return restricciones;
     }
+
+    @Override
+    public String toString() {
+        return "Propiedad: " + nombre + " en " + ubicacion;
+    }
 }

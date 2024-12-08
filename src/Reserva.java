@@ -14,8 +14,7 @@ public class Reserva {
 
     public void confirmarReserva(ContextoNotificacion contexto, MetodoPago metodoPago, double monto) {
         metodoPago.realizarPago(monto);
-        contexto.enviar("Reserva confirmada para la unidad " + unidad.getTipo(), huesped);
+        contexto.enviar("Reserva confirmada para " + huesped.getNombre() + " en unidad: " + unidad.getTipo(), huesped);
     }
-    
 }
 
