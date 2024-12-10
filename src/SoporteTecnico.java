@@ -5,7 +5,7 @@ public class SoporteTecnico {
     private List<Incidente> incidentes;
     private static SoporteTecnico instancia;
 
-    public SoporteTecnico() {
+    private SoporteTecnico() {
         this.incidentes = new ArrayList<>();
     }
 
