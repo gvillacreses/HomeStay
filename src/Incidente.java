@@ -8,10 +8,9 @@ public class Incidente {
         this.descripcion = descripcion;
         this.estado = "abierto";
     }
-
+    
     public void resolverIncidente() {
         this.estado = "resuelto";
-        System.out.println("Incidente resuelto: " + descripcion);
     }
 
 

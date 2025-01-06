@@ -1,9 +1,21 @@
 public class HomeStayServicio {
     public static void main(String[] args) {
+
     // 1. Crear usuarios: anfitrión y huésped
     Anfitrion anfitrion = new Anfitrion("Carlos Herrera", "carlos.herrera@egmail.com");
     Huesped huesped = new Huesped("Ana Gómez", "ana.gomez@outlook.es");
-    
+    Moderador moderador = new Moderador("James McGill", "james_mc@outlook.com");
+    SoporteTecnico soporte = new SoporteTecnico("Luis Perez", "Luis.perez@homestay.ec");
+
+    // 1.1 Crear incidentes
+    Incidente i1 = new Incidente("001", "Fuga de agua en la cocina");
+    Incidente i2 = new Incidente("002", "Corte de energía");
+    Incidente i3 = new Incidente("003", "Goteras en el techo");
+
+    // 1.2 Chain of Responsibility
+    anfitrion.setNext(moderador);
+    moderador.setNext(soporte);
+
     // 2. Crear propiedad y unidades
     Propiedad propiedad = new Propiedad("Departamento Central", "Quito");
     Unidad unidad1 = new Unidad("Habitación Doble", "Disponible");
@@ -34,17 +46,19 @@ public class HomeStayServicio {
     huesped.dejarCalificacion(propiedad, 5, "Excelente lugar, muy limpio y bien ubicado.");
 
 
-    /* 
+    
     // 7. Reportar un incidente
     System.out.println("\nHuésped reporta un incidente:");
-    SoporteTecnico soporte = SoporteTecnico.getInstancia();
-    huesped.reportarIncidente(soporte, "Fuga de agua en la cocina.");
+    huesped.reportarIncidente(anfitrion, i1);
     
-    // 8. Anfitrión resuelve el incidente
-    System.out.println("\nAnfitrión resuelve un incidente:");
-    Incidente incidente = new Incidente("001", "Fuga de agua en la cocina.");
-    anfitrion.resolverProblema(incidente);
-    */
+    
+    // 8.1 Huesped reporta un incidente que el anfitrion no puede resolver, por lo tanto, se escala.
+    System.out.println("\nHuesped reporta otro incidente: ");
+    huesped.reportarIncidente(anfitrion, i2);
+
+    // 8.2 Huesped reporta otro incidente que no puede resolver ni el anfitrion ni el moderador, por lo tanto se escala finalmente al soporte técnico.
+    System.out.println("\nHuesped reporta el último incidente: ");
+    huesped.reportarIncidente(anfitrion, i3);
 
 
     // 9. Notificaciones adicionales

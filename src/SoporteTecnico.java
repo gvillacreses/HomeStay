@@ -1,23 +1,24 @@
-import java.util.ArrayList;
-import java.util.List;
 
-public class SoporteTecnico {
-    private List<Incidente> incidentes;
-    private static SoporteTecnico instancia;
-
-    private SoporteTecnico() {
-        this.incidentes = new ArrayList<>();
+public class SoporteTecnico extends Usuario implements Handler{
+    private Handler next;
+    public SoporteTecnico(String nombre, String correo) {
+        super(nombre, correo);
     }
 
-    public static SoporteTecnico getInstancia(){
-        if(instancia == null){
-            instancia = new SoporteTecnico();
+    @Override
+    public void setNext(Handler h){
+        this.next=h;
+    }
+
+    @Override
+    public void manejarIncidente(Incidente i){
+
+        if(i.getEstado().equals("resuelto")){
+            System.out.println("El incidente " + i.getDescripcion() + " ya ha sido resuelto! ");
+            return;
         }
-        return instancia;
-    }
-
-    public void gestionarIncidente(Incidente incidente) {
-        incidentes.add(incidente);
-        System.out.println("Incidente gestionado: " + incidente.getDescripcion());
+        else if(i.getEstado().equals("abierto"));
+        i.resolverIncidente();
+        System.out.println("El encargado de soporte técnico " + getNombre() + " ha resuelto el incidente: " + i.getDescripcion());
     }
 }

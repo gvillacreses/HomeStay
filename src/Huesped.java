@@ -21,9 +21,7 @@ public class Huesped extends Usuario {
         System.out.println("Calificación registrada para la propiedad: " + propiedad);
     }
 
-    public void reportarIncidente(Anfitrion a, String descripcion){
-        Incidente incidente = new Incidente("ID_" + System.currentTimeMillis(), descripcion);
-        a.manejarIncidente(incidente);
-        System.out.println("Incidente reportado: " + incidente.getDescripcion());
+    public void reportarIncidente(Anfitrion a, Incidente i){
+        a.manejarIncidente(i);
     }
 }

@@ -4,7 +4,7 @@ import java.util.List;
 public class Anfitrion extends Usuario implements Handler {
     private List<Propiedad> propiedades;
     private Handler next;
-    private boolean disponible;
+    private boolean puedeResolver;
 
     @Override
     public void setNext(Handler h){
@@ -14,21 +14,29 @@ public class Anfitrion extends Usuario implements Handler {
     @Override
     public void manejarIncidente(Incidente i){
         if(i.getEstado().equals("resuelto")){
-            System.out.println("El incidente " + i.getDescripcion() + "ya ha sido resuelto! ");
+            System.out.println("El incidente " + i.getDescripcion() + " ya ha sido resuelto! ");
+            return;
         }
-        i.resolverIncidente();
-        this.disponible=false;
-        System.out.println("El anfitrión " + getNombre() + " ha resuelto el incidente: " + i.getDescripcion());
-        if(next!=null && this.disponible == false ){
+        else if(next!=null && this.puedeResolver == false ){
             i.setEstado("escalado");
             next.manejarIncidente(i);
         }
+        
+        if(i.getEstado().equals("abierto") && this.puedeResolver == true){
+            i.resolverIncidente();
+            this.puedeResolver=false;
+            System.out.println("El anfitrión " + getNombre() + " ha resuelto el incidente: " + i.getDescripcion());
+        }
+        
+        
+        
+        
     }
 
     public Anfitrion(String nombre, String correo) {
         super(nombre, correo);
         this.propiedades = new ArrayList<>();
-        disponible = true;
+        puedeResolver = true;
     }
 
     public void agregarPropiedad(Propiedad propiedad) {
@@ -43,16 +51,6 @@ public class Anfitrion extends Usuario implements Handler {
     public List<Propiedad> getPropiedades() {
         return propiedades;
     }
-/* 
-    public void resolverProblema(Incidente incidente){
-        incidente.resolverIncidente();
-        System.out.println("El anfitrión " + getNombre() + " ha resuelto el incidente: " + incidente.getDescripcion());
-    }*/
-
-    /*public void escalarProblema(Incidente incidente){
-        incidente.escalarIncidente();
-        System.out.println("El anfitrión " + getNombre() + " ha escalado el incidente: " + incidente.getDescripcion());
-    }*/
 
     public void calificarHuesped(Huesped huesped, int puntuacion, String comentario){
         Calificacion calificacion = new Calificacion(puntuacion, comentario, huesped);
