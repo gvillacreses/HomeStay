@@ -14,13 +14,16 @@ public class Incidente {
         System.out.println("Incidente resuelto: " + descripcion);
     }
 
-    public void escalarIncidente() {
-        this.estado = "escalado";
-        System.out.println("Incidente escalado: " + descripcion);
-        SoporteTecnico.getInstancia().gestionarIncidente(this);
-    }
 
     public String getDescripcion(){
         return descripcion;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+ 
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 }

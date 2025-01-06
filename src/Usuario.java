@@ -14,5 +14,8 @@ public abstract class Usuario {
     public String getCorreo() {
         return correo;
     }
+
+
+    
 }
 

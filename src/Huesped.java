@@ -1,5 +1,5 @@
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 public class Huesped extends Usuario {
     public Huesped(String nombre, String correo) {
         super(nombre, correo);
@@ -21,9 +21,9 @@ public class Huesped extends Usuario {
         System.out.println("Calificación registrada para la propiedad: " + propiedad);
     }
 
-    public void reportarIncidente(SoporteTecnico soporte, String descripcion){
+    public void reportarIncidente(Anfitrion a, String descripcion){
         Incidente incidente = new Incidente("ID_" + System.currentTimeMillis(), descripcion);
-        soporte.gestionarIncidente(incidente);
+        a.manejarIncidente(incidente);
         System.out.println("Incidente reportado: " + incidente.getDescripcion());
     }
 }

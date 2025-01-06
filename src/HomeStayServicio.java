@@ -32,7 +32,9 @@ public class HomeStayServicio {
     // 6. Dejar una calificación para la propiedad
     System.out.println("\nHuésped deja una calificación:");
     huesped.dejarCalificacion(propiedad, 5, "Excelente lugar, muy limpio y bien ubicado.");
-    
+
+
+    /* 
     // 7. Reportar un incidente
     System.out.println("\nHuésped reporta un incidente:");
     SoporteTecnico soporte = SoporteTecnico.getInstancia();
@@ -42,7 +44,9 @@ public class HomeStayServicio {
     System.out.println("\nAnfitrión resuelve un incidente:");
     Incidente incidente = new Incidente("001", "Fuga de agua en la cocina.");
     anfitrion.resolverProblema(incidente);
-    
+    */
+
+
     // 9. Notificaciones adicionales
     System.out.println("\nEnviar notificaciones adicionales:");
     contexto.setEstrategia(new NotificadorEmail());
