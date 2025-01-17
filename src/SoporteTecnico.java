@@ -1,3 +1,4 @@
+
 public class SoporteTecnico extends Usuario implements Handler{
     private Handler next;
     public SoporteTecnico(String nombre, String correo) {

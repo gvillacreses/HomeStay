@@ -1,3 +1,4 @@
+
 public class Moderador extends Usuario implements Handler{
     private boolean disponible;
     private Handler next;

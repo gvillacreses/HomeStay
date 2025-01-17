@@ -1,3 +1,4 @@
+
 public interface Subscripcion{
     void addSubscriptor(Subscriptor subscriptor);
     void removeSubscriptor(Subscriptor subscriptor);

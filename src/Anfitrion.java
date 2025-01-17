@@ -1,5 +1,7 @@
+
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class Anfitrion extends Usuario implements Handler {
     private List<Propiedad> propiedades;

@@ -1,3 +1,4 @@
+
 public abstract class Usuario implements Subscriptor{
     private String nombre;
     private String correo;

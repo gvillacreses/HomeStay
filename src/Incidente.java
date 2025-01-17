@@ -1,6 +1,7 @@
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observer;
+
 
 public class Incidente implements Subscripcion{
     private String id;
