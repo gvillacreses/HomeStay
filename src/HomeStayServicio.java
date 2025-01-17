@@ -38,8 +38,8 @@ public class HomeStayServicio {
     ContextoNotificacion contexto = new ContextoNotificacion();
     contexto.setEstrategia(new NotificadorApp()); // Elegimos notificar por la app
     
-    MetodoPago metodoPago = new PaypalFactory().crearMetodoPago(); // Pago con PayPal
-    huesped.reservar(propiedad, unidad1, "2024-12-20", "2024-12-25", contexto, metodoPago, 250.0);
+    PagoPaypal metodoPago = new PagoPaypal(huesped.getCorreo(),250.0); // Pago con PayPal
+    huesped.reservar(propiedad, unidad1, "2024-12-20", "2024-12-25", contexto, metodoPago, metodoPago.getMonto());
     
     // 6. Dejar una calificación para la propiedad
     System.out.println("\nHuésped deja una calificación:");

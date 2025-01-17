@@ -27,10 +27,6 @@ public class Anfitrion extends Usuario implements Handler {
             this.puedeResolver=false;
             System.out.println("El anfitrión " + getNombre() + " ha resuelto el incidente: " + i.getDescripcion());
         }
-        
-        
-        
-        
     }
 
     public Anfitrion(String nombre, String correo) {
