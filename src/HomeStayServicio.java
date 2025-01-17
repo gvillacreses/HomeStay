@@ -72,12 +72,22 @@ public class HomeStayServicio {
     // 10. Mostrar detalles finales
     System.out.println("\nPropiedad después de las operaciones:");
     for (Calificacion calificacion : propiedad.getCalificaciones()) {
-    System.out.println(calificacion.mostrarCalificacion());
+        System.out.println(calificacion.mostrarCalificacion());
     }
     for (Restriccion restriccion : propiedad.getRestricciones()) {
-    System.out.println("Restricción: " + restriccion.getDescripcion() +
-    ", Check-In: " + restriccion.getHorarioCheckIn() +
-    ", Check-Out: " + restriccion.getHorarioCheckOut());
+        System.out.println("Restricción: " + restriccion.getDescripcion() +
+        ", Check-In: " + restriccion.getHorarioCheckIn() +
+        ", Check-Out: " + restriccion.getHorarioCheckOut());
     }
+
+    Incidente incidente = new Incidente("001", "Fuga de agua");
+    Anfitrion anfitrion2 = new Anfitrion("Carlos", "carlos@mail.com");
+    Moderador moderador2 = new Moderador("Ana", "ana@mail.com");
+
+    incidente.addSubscriptor(anfitrion2);
+    incidente.addSubscriptor(moderador2);
+
+    incidente.setEstado("escalado");  // Notificará a todos los observadores.
+
     }
-    }
+}

@@ -6,4 +6,3 @@ public class NotificadorEmail implements Notificador {
         System.out.println("Cuerpo: " + mensaje);
     }
 }
-

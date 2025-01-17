@@ -1,4 +1,3 @@
-
 public class Moderador extends Usuario implements Handler{
     private boolean disponible;
     private Handler next;
@@ -31,11 +30,5 @@ public class Moderador extends Usuario implements Handler{
             i.setEstado("escalado");
             next.manejarIncidente(i);
         }
-        
-        
     }
-
-
-
-
 }

@@ -1,4 +1,4 @@
-public abstract class Usuario {
+public abstract class Usuario implements Subscriptor{
     private String nombre;
     private String correo;
 
@@ -14,8 +14,8 @@ public abstract class Usuario {
     public String getCorreo() {
         return correo;
     }
-
-
     
+    public void update(String mensaje){
+        System.out.println("Notificacion para " + nombre + ": " + mensaje);
+    }
 }
-

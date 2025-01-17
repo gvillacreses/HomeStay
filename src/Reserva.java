@@ -17,4 +17,3 @@ public class Reserva {
         contexto.enviar("Reserva confirmada para " + huesped.getNombre() + " en unidad: " + unidad.getTipo(), huesped);
     }
 }
-
