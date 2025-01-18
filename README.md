@@ -1,4 +1,4 @@
------------------------------------------------------------------- SISTEMA HOMESTAY ------------------------------------------------------------------
+
 El sistema HomeStay proporciona herramientas a usuarios que deseen reservar unidades de propiedades en diferentes partes del mundo, además de ayudar a usuarios que deseen ser anfitriones poniendo sus propiedades a disposición de huéspedes.
 En este proyecto se utilizaron diferentes patrones de diseño de comportamiento, entre aquellos se encuentran:
 
