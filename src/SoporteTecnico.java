@@ -1,6 +1,7 @@
 
 public class SoporteTecnico extends Usuario implements Handler{
     private Handler next;
+
     public SoporteTecnico(String nombre, String correo) {
         super(nombre, correo);
     }
@@ -12,13 +13,17 @@ public class SoporteTecnico extends Usuario implements Handler{
 
     @Override
     public void manejarIncidente(Incidente i){
-
-        if(i.getEstado().equals("resuelto")){
-            System.out.println("El incidente " + i.getDescripcion() + " ya ha sido resuelto! ");
+        if (i.getEstado().equals("resuelto")) {
+            System.out.println("El incidente " + i.getDescripcion() + " ya ha sido resuelto!");
             return;
         }
-        else if(i.getEstado().equals("abierto"));
-        i.resolverIncidente();
-        System.out.println("El encargado de soporte técnico " + getNombre() + " ha resuelto el incidente: " + i.getDescripcion());
+
+        if (i.getEstado().equals("abierto")) {
+            i.resolverIncidente();
+            System.out.println("El encargado de soporte técnico " + getNombre() + " ha resuelto el incidente: " + i.getDescripcion());
+        } else if (next != null) {
+            i.cambiarEstado("escalado");
+            next.manejarIncidente(i);
+        }
     }
 }

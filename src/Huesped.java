@@ -18,14 +18,18 @@ public class Huesped extends Usuario {
         System.out.println("Buscando propiedades con criterios: " + criterios);
         return new ArrayList<>();
     }
-    
+    /* Inappropiate Intimacy - Move Method a Propiedad
     public void dejarCalificacion(Propiedad propiedad, int puntuacion, String comentario) {
         Calificacion calificacion = new Calificacion(puntuacion, comentario, this);
         propiedad.agregarCalificacion(calificacion);
         System.out.println("Calificación registrada para la propiedad: " + propiedad);
     }
-
+    */
     public void reportarIncidente(Anfitrion a, Incidente i){
         a.manejarIncidente(i);
+    }
+    
+    public void dejarCalificacion(Propiedad propiedad, int puntuacion, String comentario) {
+        propiedad.agregarCalificacion(this, puntuacion, comentario);
     }
 }

@@ -15,12 +15,20 @@ public class Incidente{
         this.estado = "abierto";
         this.manejadorSubscripciones = new ManejadorSubscripciones();
     }
-    
+    /*Message Chain - Hide Delegate
     public void resolverIncidente() {
         this.estado = "resuelto";
         manejadorSubscripciones.notificarSubscriptor("El incidente " + descripcion + " ha sido resuelto.");
     }
+    */
+    public void resolverIncidente() {
+        cambiarEstado("resuelto");
+    }
 
+    public void cambiarEstado(String nuevoEstado) {
+        this.estado = nuevoEstado;
+        manejadorSubscripciones.notificarSubscriptor("El incidente " + descripcion + " ha cambiado a estado: " + estado);
+    }
 
     public String getDescripcion(){
         return descripcion;
