@@ -1,5 +1,4 @@
-
-public class Moderador extends Usuario implements Handler{
+public class Moderador extends Usuario implements Handler, Subscriptor{
     /* Temporary Field - Introduce Parameter Object
     private boolean disponible;
      */
@@ -27,12 +26,17 @@ public class Moderador extends Usuario implements Handler{
         }
 
         if (next != null) {
-            i.cambiarEstado("escalado");
+            i.cambiarEstado(new EstadoEscalado());
             next.manejarIncidente(i);
         }
     }
 
     private boolean puedeResolverIncidente(Incidente i) {
         return i.getEstado().equals("escalado");
+    }
+    
+    @Override
+    public void update(String mensaje) {
+        System.out.println("Notificación para Moderador " + getNombre() + ": " + mensaje);
     }
 }

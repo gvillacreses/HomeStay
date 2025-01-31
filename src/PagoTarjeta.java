@@ -1,4 +1,3 @@
-
 public class PagoTarjeta implements MetodoPago {
     public String titular;
     public double monto;

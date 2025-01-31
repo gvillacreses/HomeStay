@@ -1,5 +1,3 @@
-
-
 public class Restriccion {
     private String descripcion;
     private String horarioCheckIn;

@@ -1,4 +1,3 @@
-
 public class ContextoNotificacion{
     private Notificador estrategia;
 

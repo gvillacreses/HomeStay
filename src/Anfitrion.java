@@ -1,9 +1,7 @@
 
 import java.util.ArrayList;
 import java.util.List;
-
-
-public class Anfitrion extends Usuario implements Handler {
+public class Anfitrion extends Usuario implements Handler, Subscriptor {
     private List<Propiedad> propiedades;
     private Handler next;
     private boolean puedeResolver;
@@ -48,7 +46,7 @@ public class Anfitrion extends Usuario implements Handler {
 
     private boolean escalarIncidente(Incidente i) {
         if (next != null && !this.puedeResolver) {
-            i.setEstado("escalado");
+            i.cambiarEstado(new EstadoEscalado());
             next.manejarIncidente(i);
             return true;
         }
@@ -81,15 +79,20 @@ public class Anfitrion extends Usuario implements Handler {
     public List<Propiedad> getPropiedades() {
         return propiedades;
     }
-
+    /* Featury Envy - Move Method
     public void calificarHuesped(Huesped huesped, int puntuacion, String comentario){
         Calificacion calificacion = new Calificacion(puntuacion, comentario, huesped);
         System.out.println("Huésped calificado: " + calificacion.mostrarCalificacion());
     }
-
+    */
+    public void calificarHuesped(Huesped huesped, int puntuacion, String comentario){
+        huesped.recibirCalificacion(puntuacion, comentario);
+    }
     public void rellenarFormulario(String formulario){
         System.out.println("El anfitrión " + getNombre() + " ha rellenado el formulario: " + formulario);
 
     }
-
+    public void update(String mensaje) {
+        System.out.println("Notificación para Anfitrión " + getNombre() + ": " + mensaje);
+    }
 }

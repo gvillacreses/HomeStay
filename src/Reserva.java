@@ -1,5 +1,3 @@
-import java.time.LocalDate;
-
 public class Reserva {
     private Unidad unidad;
     private Huesped huesped;
@@ -20,19 +18,21 @@ public class Reserva {
         contexto.enviar("Reserva confirmada para " + huesped.getNombre() + " en unidad: " + unidad.getTipo(), huesped);
     }
     */
+    /* Data Clumps - Introduce Parameter Object
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
+     */
+    private PeriodoReserva periodo;
     private boolean confirmada;
 
-    public boolean esValida() {
-        return !fechaInicio.isAfter(fechaFin);
+    public Reserva(Unidad unidad, Huesped huesped, PeriodoReserva periodo) {
+        this.unidad = unidad;
+        this.huesped = huesped;
+        this.periodo = periodo;
+        this.confirmada = false;
     }
 
     public void confirmarReserva(ContextoNotificacion contexto, MetodoPago metodoPago, double monto) {
-        if (!esValida()) {
-            throw new IllegalArgumentException("La fecha de inicio no puede ser posterior a la fecha de fin.");
-        }
-
         metodoPago.realizarPago(monto);
         this.confirmada = true;
         contexto.enviar("Reserva confirmada para " + huesped.getNombre() + " en unidad: " + unidad.getTipo(), huesped);

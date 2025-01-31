@@ -1,8 +1,3 @@
-
-import java.util.ArrayList;
-import java.util.List;
-
-
 public class Incidente{
     private String id;
     private String descripcion;

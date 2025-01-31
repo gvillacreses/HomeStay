@@ -32,4 +32,8 @@ public class Huesped extends Usuario {
     public void dejarCalificacion(Propiedad propiedad, int puntuacion, String comentario) {
         propiedad.agregarCalificacion(this, puntuacion, comentario);
     }
+    public void recibirCalificacion(int puntuacion, String comentario) {
+        Calificacion calificacion = new Calificacion(puntuacion, comentario, this);
+        System.out.println("Nueva calificación recibida: " + calificacion.mostrarCalificacion());
+    }
 }

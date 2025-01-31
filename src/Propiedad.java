@@ -1,8 +1,5 @@
-
-
 import java.util.ArrayList;
 import java.util.List;
-
 public class Propiedad {
     private String nombre;
     private String ubicacion;
@@ -22,8 +19,10 @@ public class Propiedad {
         unidades.add(unidad);
     }
 
-    public void agregarCalificacion(Calificacion calificacion) {
+    public void agregarCalificacion(Huesped huesped, int puntuacion, String comentario) {
+        Calificacion calificacion = new Calificacion(puntuacion, comentario, huesped);
         calificaciones.add(calificacion);
+        System.out.println("Calificación registrada: " + calificacion.mostrarCalificacion());
     }
 
     public void agregarRestriccion(Restriccion restriccion) {
