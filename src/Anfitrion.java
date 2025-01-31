@@ -12,7 +12,7 @@ public class Anfitrion extends Usuario implements Handler {
     public void setNext(Handler h){
         this.next=h;
     }
-
+    /* Longh Method - Extract Method
     @Override
     public void manejarIncidente(Incidente i){
         if(i.getEstado().equals("resuelto")){
@@ -30,7 +30,39 @@ public class Anfitrion extends Usuario implements Handler {
             System.out.println("El anfitrión " + getNombre() + " ha resuelto el incidente: " + i.getDescripcion());
         }
     }
+    */
 
+    public void manejarIncidente(Incidente i) {
+        if (incidenteResuelto(i)) return;
+        if (escalarIncidente(i)) return;
+        resolverIncidente(i);
+    }
+
+    private boolean incidenteResuelto(Incidente i) {
+        if (i.getEstado().equals("resuelto")) {
+            System.out.println("El incidente " + i.getDescripcion() + " ya ha sido resuelto!");
+            return true;
+        }
+        return false;
+    }
+
+    private boolean escalarIncidente(Incidente i) {
+        if (next != null && !this.puedeResolver) {
+            i.setEstado("escalado");
+            next.manejarIncidente(i);
+            return true;
+        }
+        return false;
+    }
+
+    private void resolverIncidente(Incidente i) {
+        if (i.getEstado().equals("abierto") && this.puedeResolver) {
+            i.resolverIncidente();
+            this.puedeResolver = false;
+            System.out.println("El anfitrión " + getNombre() + " ha resuelto el incidente: " + i.getDescripcion());
+        }
+    }
+    
     public Anfitrion(String nombre, String correo) {
         super(nombre, correo);
         this.propiedades = new ArrayList<>();

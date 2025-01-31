@@ -3,22 +3,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Incidente implements Subscripcion{
+public class Incidente{
     private String id;
     private String descripcion;
     private String estado; // abierto, resuelto, escalado
-    private List<Subscriptor> subscriptores;
+    private ManejadorSubscripciones manejadorSubscripciones;
 
     public Incidente(String id, String descripcion) {
         this.id = id;
         this.descripcion = descripcion;
         this.estado = "abierto";
-        this.subscriptores = new ArrayList<>();
+        this.manejadorSubscripciones = new ManejadorSubscripciones();
     }
     
     public void resolverIncidente() {
         this.estado = "resuelto";
-        notificarSubscriptor("El incidente " + descripcion + " ha sido resuelto.");
+        manejadorSubscripciones.notificarSubscriptor("El incidente " + descripcion + " ha sido resuelto.");
     }
 
 
@@ -32,9 +32,9 @@ public class Incidente implements Subscripcion{
  
     public void setEstado(String estado) {
         this.estado = estado;
-        notificarSubscriptor("El incidente " + descripcion + " ha cambiado a estado: " + estado);
+        manejadorSubscripciones.notificarSubscriptor("El incidente " + descripcion + " ha cambiado a estado: " + estado);
     }
-
+    /* Divergent Change - Extract Class
     @Override
     public void addSubscriptor(Subscriptor subscriptor) {
         subscriptores.add(subscriptor);
@@ -50,5 +50,14 @@ public class Incidente implements Subscripcion{
         for (Subscriptor subscriptor : subscriptores) {
             subscriptor.update(mensaje);
         }
+    }
+    */
+
+    public void addSubscriptor(Subscriptor subscriptor) {
+        manejadorSubscripciones.addSubscriptor(subscriptor);
+    }
+
+    public void removeSubscriptor(Subscriptor subscriptor) {
+        manejadorSubscripciones.removeSubscriptor(subscriptor);
     }
 }
