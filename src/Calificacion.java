@@ -18,8 +18,4 @@ public class Calificacion {
     public String mostrarCalificacion() {
         return "Puntuación: " + puntuacion + ", Comentario: " + comentario + ", Por: " + huesped.getNombre();
     }
-
-    public void mostrar() {
-        System.out.println("Huésped calificado: " + this.mostrarCalificacion());
-    }
 }

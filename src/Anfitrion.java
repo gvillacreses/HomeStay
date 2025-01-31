@@ -13,8 +13,7 @@ public class Anfitrion extends Usuario implements Handler {
         this.next=h;
     }
 
-    /**
-     * Long method - Aplicar Extract Method
+    @Override
     public void manejarIncidente(Incidente i){
         if(i.getEstado().equals("resuelto")){
             System.out.println("El incidente " + i.getDescripcion() + " ya ha sido resuelto! ");
@@ -30,40 +29,6 @@ public class Anfitrion extends Usuario implements Handler {
             this.puedeResolver=false;
             System.out.println("El anfitrión " + getNombre() + " ha resuelto el incidente: " + i.getDescripcion());
         }
-    }
-    */
-
-    public void manejarIncidente(Incidente i){
-        if (incidenteResuelto(i)) return;
-        if (debeEscalarIncidente(i)) return;
-        if (puedeResolverIncidente(i)) resolverIncidente(i);
-    }
-
-    private boolean incidenteResuelto(Incidente i){
-        if(i.getEstado().equals("resuelto")){
-            System.out.println("El incidente " + i.getDescripcion() + " ya ha sido resuelto!");
-            return true;
-        }
-        return false;
-    }
-
-    private boolean debeEscalarIncidente(Incidente i) {
-        if (next != null && !this.puedeResolver) {
-            i.setEstado("escalado");
-            next.manejarIncidente(i);
-            return true;
-        }
-        return false;
-    }
-    
-    private boolean puedeResolverIncidente(Incidente i) {
-        return i.getEstado().equals("abierto") && this.puedeResolver;
-    }
-    
-    private void resolverIncidente(Incidente i) {
-        i.resolverIncidente();
-        this.puedeResolver = false;
-        System.out.println("El anfitrión " + getNombre() + " ha resuelto el incidente: " + i.getDescripcion());
     }
 
     public Anfitrion(String nombre, String correo) {
@@ -85,16 +50,9 @@ public class Anfitrion extends Usuario implements Handler {
         return propiedades;
     }
 
-    /* Feature Envy _ Se aplica Move Method a calificacion
     public void calificarHuesped(Huesped huesped, int puntuacion, String comentario){
         Calificacion calificacion = new Calificacion(puntuacion, comentario, huesped);
         System.out.println("Huésped calificado: " + calificacion.mostrarCalificacion());
-    }
-    */
-
-    public void calificarHuesped(Huesped huesped, int puntuacion, String comentario){
-        Calificacion calificacion = new Calificacion(puntuacion, comentario, huesped);
-        calificacion.mostrar();
     }
 
     public void rellenarFormulario(String formulario){
