@@ -1,15 +1,12 @@
 
 import java.util.ArrayList;
 import java.util.List;
-
-
-
 public class Huesped extends Usuario {
     public Huesped(String nombre, String correo) {
         super(nombre, correo);
     }
-    public void reservar(Propiedad propiedad, Unidad unidad, String fechaInicio, String fechaFin, ContextoNotificacion contexto, MetodoPago metodoPago, double monto){
-        Reserva reserva = new Reserva(unidad, this, fechaInicio, fechaFin);
+    public void reservar(Propiedad propiedad, Unidad unidad, PeriodoReserva periodo, ContextoNotificacion contexto, MetodoPago metodoPago, double monto){
+        Reserva reserva = new Reserva(unidad, this, periodo);
         reserva.confirmarReserva(contexto, metodoPago, monto);
     }
 

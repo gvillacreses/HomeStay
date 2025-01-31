@@ -22,7 +22,7 @@ public class SoporteTecnico extends Usuario implements Handler{
             i.resolverIncidente();
             System.out.println("El encargado de soporte técnico " + getNombre() + " ha resuelto el incidente: " + i.getDescripcion());
         } else if (next != null) {
-            i.cambiarEstado("escalado");
+            i.cambiarEstado(new EstadoEscalado());
             next.manejarIncidente(i);
         }
     }
