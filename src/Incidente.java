@@ -6,13 +6,16 @@ import java.util.List;
 public class Incidente{
     private String id;
     private String descripcion;
+    /* Stringly Typed Code - Type code with State/Strategy
     private String estado; // abierto, resuelto, escalado
+     */
+    private EstadoIncidente estado;
     private ManejadorSubscripciones manejadorSubscripciones;
 
     public Incidente(String id, String descripcion) {
         this.id = id;
         this.descripcion = descripcion;
-        this.estado = "abierto";
+        this.estado = new EstadoAbierto();
         this.manejadorSubscripciones = new ManejadorSubscripciones();
     }
     /*Message Chain - Hide Delegate
@@ -21,13 +24,19 @@ public class Incidente{
         manejadorSubscripciones.notificarSubscriptor("El incidente " + descripcion + " ha sido resuelto.");
     }
     */
-    public void resolverIncidente() {
-        cambiarEstado("resuelto");
+
+    public void manejarIncidente() {
+        estado.manejar(this);
+        manejadorSubscripciones.notificarSubscriptor("El incidente " + descripcion + " ha cambiado a estado: " + estado.getNombre());
     }
 
-    public void cambiarEstado(String nuevoEstado) {
+    public void resolverIncidente() {
+        estado.manejar(this);
+    }
+
+    public void cambiarEstado(EstadoIncidente nuevoEstado) {
         this.estado = nuevoEstado;
-        manejadorSubscripciones.notificarSubscriptor("El incidente " + descripcion + " ha cambiado a estado: " + estado);
+        manejadorSubscripciones.notificarSubscriptor("El incidente " + descripcion + " ha cambiado a estado: " + estado.getNombre());
     }
 
     public String getDescripcion(){
@@ -35,13 +44,9 @@ public class Incidente{
     }
 
     public String getEstado() {
-        return estado;
+        return estado.getNombre();
     }
  
-    public void setEstado(String estado) {
-        this.estado = estado;
-        manejadorSubscripciones.notificarSubscriptor("El incidente " + descripcion + " ha cambiado a estado: " + estado);
-    }
     /* Divergent Change - Extract Class
     @Override
     public void addSubscriptor(Subscriptor subscriptor) {
